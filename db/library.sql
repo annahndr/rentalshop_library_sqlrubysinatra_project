@@ -8,6 +8,7 @@ CREATE TABLE books(
   image VARCHAR(255),
   title VARCHAR(255),
   author VARCHAR(255),
+  illustrator VARCHAR(255),
   age_range VARCHAR(255),
   checked_out VARCHAR(255)
 );
@@ -15,7 +16,7 @@ CREATE TABLE books(
 CREATE TABLE customers(
   id SERIAL2 PRIMARY KEY,
   name VARCHAR(255),
-  email VARCHAR(100)
+  email VARCHAR(255)
 );
 
 CREATE TABLE loans(
