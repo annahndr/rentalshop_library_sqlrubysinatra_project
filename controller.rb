@@ -6,6 +6,12 @@ require_relative("./models/member")
 require_relative("./models/loan")
 also_reload('./models/*')
 
+
+#create a new book
+get '/books/new' do
+  erb(:books_new)
+end
+
 #show one book
 get '/books/:id' do
   @book = Book.find(params[:id])
@@ -16,8 +22,4 @@ end
 get '/books' do
   @books = Book.all()
   erb (:books)
-end
-
-get '/books/new' do
-  erb(:books_new)
 end
