@@ -23,3 +23,16 @@ get '/books' do
   @books = Book.all()
   erb (:books)
 end
+
+#edit a book
+get '/books/:id/edit' do
+  @book = Book.find(params[:id])
+  erb(:books_edit)
+end
+
+#save the edit to the database
+post '/books/:id' do
+  @book = Book.new(params)
+  @book.update()
+  erb(:books_show)
+end

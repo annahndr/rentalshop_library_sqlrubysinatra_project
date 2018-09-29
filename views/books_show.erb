@@ -5,5 +5,10 @@
     Author: <%= @book.author %><br>
     Illustrator: <%= @book.illustrator %><br>
     Age Range: <%= @book.age_range %><br>
-    Checked in/out <%= @book.checked_out %><br>
+    Checked out? <%= @book.checked_out %><br>
   </p>
+<br>
+<form method="get" action="/books/<%= @book.id %>/edit">
+  <input type="submit" value="Edit Book"/>
+</form>
+<br>

@@ -1,0 +1,33 @@
+<form method="post" action="/books/<%= @book.id %>">
+
+  <label for= "image">Image:</label>
+  <input value="<%= @book.image %>" id="image" type="text" name ="image"/>
+  <br>
+  <label for="title">Title:</label>
+  <input value="<%= @book.title %>" id= "title" type="text" name="title"/>
+
+  <label for="author">Author:</label>
+  <input value="<%= @book.author %>" id= "author" type="text" name="author"/>
+
+  <label for="illustrator">Illustrator:</label>
+  <input value="<%= @book.illustrator %>" id= "illustrator" type="text" name="illustrator"/>
+
+  <label for="age_range">Age range:</label>
+  <select id="age_range"
+  name="age_range">
+      <option value="3-5yrs" <%= "selected" if @book.age_range == "3-5yrs"%>>3-5yrs</option>
+
+      <option value="5-8yrs" <%= "selected" if @book.age_range == "5-8yrs"%>>5-8yrs</option>
+      <option value="age_range" <%= "selected" if @book.age_range == "9-12yrs"%>>9-12yrs</option>
+  </select>
+
+  <label for="checked_out">Checked out?</label>
+  <select id="checked_out"
+  name="checked_out">
+      <option value="in" <%= "selected" if @book.checked_out == "in"%>>in</option>
+
+      <option value="out" <%= "selected" if @book.checked_out == "out"%>>out</option>
+
+  <input type="submit" value="Edit Book"/>
+
+</form>
