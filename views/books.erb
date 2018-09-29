@@ -1,0 +1,11 @@
+<h1>BOOKS</h1>
+
+<% for book in @books %>
+  <p>Image: <%= book.image %><br>
+    Title: <%= book.title %><br>
+    Author: <%= book.author %><br>
+    Illustrator: <%= book.illustrator %><br>
+  </p>
+  <p><a href="/books/<%= book.id %>">See book details</a></p>
+
+<% end %>

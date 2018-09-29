@@ -44,6 +44,13 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
       SqlRunner.run(sql, values)
     end
 
+    def self.find(id)
+    sql = "SELECT * FROM books WHERE id = $1"
+    values = [id]
+    book = SqlRunner.run( sql, values )
+    return Book.new( book.first )
+    end
+
     def self.all_available
       sql = "SELECT * FROM books WHERE checked_out = $1"
       values = ['in']
@@ -57,7 +64,7 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
       books = SqlRunner.run(sql, values)
       return books.map{|book_hash| Book.new(book_hash)}
     end
-    
+
     def self.all
         sql = "SELECT * FROM books"
         books = SqlRunner.run(sql)
