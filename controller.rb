@@ -50,6 +50,12 @@ post '/books/:id' do
   erb(:books_show)
 end
 
+#show one member
+get '/members/:id' do
+  @member = Member.find(params[:id])
+  erb (:members_show)
+end
+
 #display all members
 get '/members' do
   @members = Member.all()

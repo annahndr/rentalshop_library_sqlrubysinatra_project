@@ -1,0 +1,13 @@
+
+  <p>Name: <%= @member.name %><br>
+    Contact: <%= @member.contact %><br>
+    Id: <%= @member.id %><br>
+  </p>
+<br>
+<form method="get" action="/members/<%= @member.id %>/edit">
+  <input type="submit" value="Edit/Update Member"/>
+</form>
+<form method="post" action="/members/<%= @member.id %>/delete">
+  <input type="submit" value="Delete Member"/>
+</form>
+<br>
