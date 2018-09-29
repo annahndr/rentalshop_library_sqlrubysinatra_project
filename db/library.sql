@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS loans;
 DROP TABLE IF EXISTS books;
-DROP TABLE IF EXISTS customers;
+DROP TABLE IF EXISTS members;
 
 CREATE TABLE books(
   id SERIAL2 PRIMARY KEY,
@@ -12,7 +12,7 @@ CREATE TABLE books(
   checked_out VARCHAR(255)
 );
 
-CREATE TABLE customers(
+CREATE TABLE members(
   id SERIAL2 PRIMARY KEY,
   name VARCHAR(255),
   email VARCHAR(255)
@@ -20,7 +20,7 @@ CREATE TABLE customers(
 
 CREATE TABLE loans(
   id SERIAL4 PRIMARY KEY,
-  customer_id INT2 REFERENCES customers(id) ON DELETE CASCADE,
+  member_id INT2 REFERENCES members(id) ON DELETE CASCADE,
   book_id INT2 REFERENCES books(id) ON DELETE CASCADE,
   due_back DATE
 );

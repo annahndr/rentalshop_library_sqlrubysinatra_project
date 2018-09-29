@@ -51,6 +51,13 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
       return books.map {|book_hash| Book.new(book_hash)}
     end
 
+    def self.all_checked_out
+      sql = " SELECT * FROM books WHERE checked_out = $1"
+      values = ['out']
+      books = SqlRunner.run(sql, values)
+      return books.map{|book_hash| Book.new(book_hash)}
+    end
+    
     def self.all
         sql = "SELECT * FROM books"
         books = SqlRunner.run(sql)
