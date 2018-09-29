@@ -15,7 +15,7 @@ CREATE TABLE books(
 CREATE TABLE members(
   id SERIAL2 PRIMARY KEY,
   name VARCHAR(255),
-  email VARCHAR(255)
+  contact VARCHAR(255)
 );
 
 CREATE TABLE loans(

@@ -1,36 +1,30 @@
 require_relative('../db/sql_runner.rb')
+require_relative('./loan')
+
 
 class Member
 
 attr_reader :id
-attr_accessor :name, :email
+attr_accessor :name, :contact
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @email = options['email']
+    @contact = options['contact']
   end
 
   def save()
-      sql = "INSERT INTO members
-      (
-        name, email
-      )
-      VALUES
-      (
-        $1, $2
-      )
-      RETURNING id"
-      values = [@name, @email, @id]
+      sql = "INSERT INTO members (name, contact) VALUES ($1, $2) RETURNING id"
+      values = [@name, @contact]
       results = SqlRunner.run(sql, values)
       @id = results.first()['id'].to_i
     end
 
     def update()
-      sql = "UPDATE members SET (name, email) =
+      sql = "UPDATE members SET (name, contact) =
       ($1, $2)
       WHERE id =  $3"
-      values = [@image, @email, @id]
+      values = [@image, @contact, @id]
       SqlRunner.run(sql, values)
     end
 
@@ -38,6 +32,29 @@ attr_accessor :name, :email
       sql = "DELETE FROM members WHERE id = $1"
       values = [@id]
       SqlRunner.run(sql, values)
+    end
+
+    def check_out_book
+      sql = ""
+
+      def buy_ticket(film)
+        if @funds >= film.price
+          @funds -= film.price
+          new_ticket = Ticket.new({'customer_id' => @id, "film_id" => film.id})
+          new_ticket.save
+        end
+      end
+
+
+    def self.all
+      sql = "SELECT * FROM members"
+      members = SqlRunner.run(sql)
+      return members.map{|member_hash| Member.new(member_hash)}
+    end
+
+    def self.delete_all
+      sql = "DELETE FROM members"
+      SqlRunner.run(sql)
     end
 
 end

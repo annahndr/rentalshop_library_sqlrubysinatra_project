@@ -5,6 +5,7 @@ require_relative('../models/loan.rb')
 
 
 Book.delete_all
+Member.delete_all
 
 book1 = Book.new({"image" => "picture", "title" => "Shakleton's Journey", "author" => "William Grill", "illustrator" => "William Grill", "age_range" => "5-8", "checked_out" => "in"})
 
@@ -16,10 +17,11 @@ book1.save
 book2.save
 book3.save
 
-member1 = Member.new({"name" => "Hope Henderson", "email" => "hopeatemail"})
-member2 = Member.new({"name" => "Erin Henderson", "email" => "erinatemail"})
+member1 = Member.new({"name" => "Hope Henderson", "contact" => "email"})
+member2 = Member.new({"name" => "Erin Henderson", "contact" => "email"})
 
 member1.save
+member2.save
 
 
 
