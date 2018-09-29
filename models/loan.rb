@@ -10,6 +10,12 @@ def initialize(options)
   @due_back = options['due_back']
 end
 
+def save()
+    sql = "INSERT INTO loans (member_id, book_id, due_back) VALUES ($1, $2, $3) RETURNING id"
+    values = [@member_id, @book_id, @due_back]
+    results = SqlRunner.run(sql, values)
+    @id = results.first()['id'].to_i
+end
 
 
 ##

@@ -23,6 +23,11 @@ member2 = Member.new({"name" => "Erin Henderson", "contact" => "email"})
 member1.save
 member2.save
 
+loan1 = Loan.new({"member_id" => member1.id, "book_id" => book2.id, "due_back" => "2018-10-30"})
+loan2 = Loan.new({"member_id" => member1.id, "book_id" => book1.id, "due_back" => "2018-10-30"})
+
+loan1.save
+
 
 
 

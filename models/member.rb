@@ -34,18 +34,6 @@ attr_accessor :name, :contact
       SqlRunner.run(sql, values)
     end
 
-    def check_out_book
-      sql = ""
-
-      def buy_ticket(film)
-        if @funds >= film.price
-          @funds -= film.price
-          new_ticket = Ticket.new({'customer_id' => @id, "film_id" => film.id})
-          new_ticket.save
-        end
-      end
-
-
     def self.all
       sql = "SELECT * FROM members"
       members = SqlRunner.run(sql)
