@@ -1,0 +1,14 @@
+<h1>MEMBERS</h1>
+
+<ul>
+  <li><a href="/members/new">Create New Member</a></li>
+
+</ul>
+
+<% for member in @members %>
+  <p>Name: <%= member.name %><br>
+    Contact: <%= member.contact %><br>
+  </p>
+  <p><a href="/members/<%= member.id %>">See Member Details</a></p>
+
+<% end %>
