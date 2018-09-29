@@ -30,6 +30,14 @@ get '/books/:id/edit' do
   erb(:books_edit)
 end
 
+#delete a book
+post '/books/:id/delete' do
+  @book = Book.find(params[:id])
+  @book.delete()
+  redirect '/books'
+end
+
+
 #save the edit to the database
 post '/books/:id' do
   @book = Book.new(params)
