@@ -27,6 +27,7 @@ loan1 = Loan.new({"member_id" => member1.id, "book_id" => book2.id, "due_back" =
 loan2 = Loan.new({"member_id" => member1.id, "book_id" => book1.id, "due_back" => "2018-10-30"})
 
 loan1.save
+loan2.save
 
 
 

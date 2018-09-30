@@ -44,6 +44,19 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
       SqlRunner.run(sql, values)
     end
 
+    #change checked_out to 'out' method
+    def check_out_book
+      sql = "UPDATE books SET checked_out = $1"
+      values = ['out']
+      updated_book = SqlRunner.run(sql, values)
+    end
+
+    def return_book
+      sql = "UPDATE books SET checked_out = $1"
+      values = ['in']
+      updated_book = SqlRunner.run(sql, values)
+    end
+
     def self.find(id)
     sql = "SELECT * FROM books WHERE id = $1"
     values = [id]

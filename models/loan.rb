@@ -2,6 +2,9 @@ require_relative('../db/sql_runner')
 
 class Loan
 
+  attr_accessor :due_back
+  attr_reader :id, :member_id, :book_id
+
 
 def initialize(options)
   @id = options['id'].to_i if options['id']
@@ -17,13 +20,24 @@ def save()
     @id = results.first()['id'].to_i
 end
 
-#a method to find all loans
+def update
+  sql = "UPDATE members SET (member_id, book_id, due_back) = ($1, $2, $3) WHERE id = $4"
+  values = [@member_id, @book_id, @due_back, @id]
+  SqlRunner.run(sql, values)
+end
 
+#a method to get member name from loan?
+#can't get sql syntax right
+def member_name
+  sql = "SELECT name FROM members WHERE loans.member_id = members.id"
+  return SqlRunner.run(sql)
+end
 
-# def borrow_a_book
-#   #create a new loan
-#   borrowed_book = Loan.new(params)
-#   borrowed_book.save
+def self.all
+    sql = "SELECT * FROM loans"
+    loans = SqlRunner.run(sql)
+    return loans.map {|loan_hash| Loan.new(loan_hash)}
+end
 
 ##
 end

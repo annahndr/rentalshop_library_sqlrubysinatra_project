@@ -1,0 +1,28 @@
+<h3>Check out a book</h3>
+<br>
+<br>
+<form method="post" action="/loans">
+
+<label for="member_select">Select member:</label>
+  <select name="member_id" id="member_select">
+        <% @members.each do |member| %>
+            <option value=<%= member.id %>><%= member.name %></option>
+        <% end %>
+  </select>
+
+  <label for="book_select">Select book:</label>
+    <select name="book_id" id="book_select">
+          <% @books.each do |book| %>
+              <option value=<%= book.id %>><%= book.title %></option>
+              <%book.check_out_book%>
+          <% end %>
+    </select>
+
+  <label for= "due_back">Due back:</label>
+  <input id="due_back" type="text" name ="due_back"/>
+
+  <input type="submit" value="Create Loan"/>
+
+</form>
+<br>
+<br>

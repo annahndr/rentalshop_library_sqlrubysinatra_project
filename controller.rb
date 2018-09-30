@@ -26,7 +26,10 @@ get '/books/available' do
 end
 
 #display all books on loan
-
+get '/books/on-loan' do
+  @books = Book.all_checked_out
+  erb(:books_on_loan)
+end
 
 #show one book
 get '/books/:id' do
@@ -39,8 +42,6 @@ get '/books' do
   @books = Book.all()
   erb (:books)
 end
-
-
 
 #edit a book
 get '/books/:id/edit' do
@@ -99,4 +100,27 @@ post '/members' do
   @member = Member.new(params)
   @member.save()
   redirect '/members'
+end
+
+#LOANS
+
+#show all loans
+get '/loans' do
+  @loans = Loan.all()
+  erb (:loans)
+end
+
+#create a new loan
+get '/loans/new' do
+  @members = Member.all()
+  @books = Book.all_available()
+  erb(:loans_new)
+end
+
+#save loan to database
+#update book in database
+post '/loans' do
+  @loan = Loan.new(params)
+  @loan.save
+  redirect '/loans'
 end

@@ -1,0 +1,10 @@
+
+
+<% for loan in @loans %>
+  <p>Loan ID: <%= loan.id %><br>
+    Member ID: <%=loan.member_id %><br>
+    Book ID: <%= loan.book_id %><br>
+    Due back: <%= loan.due_back %><br>
+  </p>
+
+<% end %>
