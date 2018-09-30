@@ -1,0 +1,11 @@
+<form method="post" action="/members/<%= @member.id %>">
+
+  <label for= "name">Name:</label>
+  <input value="<%= @member.name %>" id="name" type="text" name ="name"/>
+  <br>
+  <label for="contact">Contact:</label>
+  <input value="<%= @member.contact %>" id= "contact" type="text" name="contact"/>
+  <br>
+  <input type="submit" value="Edit Member"/>
+
+  </form>

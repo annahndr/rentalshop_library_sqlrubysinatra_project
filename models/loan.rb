@@ -17,6 +17,13 @@ def save()
     @id = results.first()['id'].to_i
 end
 
+#a method to find all loans
+
+
+# def borrow_a_book
+#   #create a new loan
+#   borrowed_book = Loan.new(params)
+#   borrowed_book.save
 
 ##
 end
