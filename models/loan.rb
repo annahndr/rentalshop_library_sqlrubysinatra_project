@@ -28,9 +28,11 @@ end
 
 #a method to get member name from loan?
 #can't get sql syntax right
-def member_name
-  sql = "SELECT name FROM members WHERE loans.member_id = members.id"
-  return SqlRunner.run(sql)
+def member
+  sql = "SELECT * FROM members INNER JOIN loans ON loans.member_id = members.id WHERE loans.id = $1"
+  values = [@id]
+  row =SqlRunner.run(sql, values).first
+  return Member.new(row)
 end
 
 def self.all
