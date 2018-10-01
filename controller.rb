@@ -65,8 +65,14 @@ end
 #save the book edit to the database
 post '/books/:id' do
   @book = Book.new(params)
+  @book.image=params[:image][:filename]
+  file = params[:image][:tempfile]
+  #wb is write binary
+  File.open("./public/images/#{@book.image}", "wb") do |f|
+  f.write(file.read)
+  end
   @book.update()
-  erb(:books_show)
+  redirect '/books'
 end
 
 #LIBRARY MEMBERS
@@ -111,7 +117,11 @@ end
 #LOANS
 
 # return a book and delete a loan
-# 
+# locate the loan to be deleted
+# call the book relevant to that loan
+# return the book back to stock
+# delete the loan
+# send the user back to the loans page
 post '/loans/:id/delete' do
   @loan = Loan.find(params[:id])
   @book = @loan.book

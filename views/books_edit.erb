@@ -1,7 +1,7 @@
-<form method="post" action="/books/<%= @book.id %>">
+<form method="post" action="/books/<%= @book.id %>" enctype ="multipart/form-data">
 
   <label for= "image">Image:</label>
-  <input value="<%= @book.image %>" id="image" type="text" name ="image"/>
+  <input value="<%= @book.image %>" id="image" type="file" name ="image"/>
   <br>
   <label for="title">Title:</label>
   <input value="<%= @book.title %>" id= "title" type="text" name="title"/>
