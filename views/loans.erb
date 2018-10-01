@@ -2,9 +2,12 @@
 
 <% for loan in @loans %>
   <p>Loan ID: <%= loan.id %><br>
-    Member ID: <%=loan.member.name %><br>
-    Book ID: <%= loan.book_id %><br>
+    Member: <%=loan.member.name%><br>
+    Book: <%= loan.book.title %><br>
     Due back: <%= loan.due_back %><br>
   </p>
 
+  <form method="post" action="/loans/<%=loan.id %>/delete">
+    <input type="submit" value="Return Book"/>
+  </form>
 <% end %>

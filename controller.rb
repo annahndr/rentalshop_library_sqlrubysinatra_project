@@ -15,6 +15,12 @@ end
 #send new book info to the database
 post '/books' do
   @book = Book.new(params)
+  @book.image=params[:image][:filename]
+  file = params[:image][:tempfile]
+  #wb is write binary
+  File.open("./public/images/#{@book.image}", "wb") do |f|
+  f.write(file.read)
+  end
   @book.save()
   redirect '/books'
 end
@@ -103,6 +109,16 @@ post '/members' do
 end
 
 #LOANS
+
+# return a book and delete a loan
+# 
+post '/loans/:id/delete' do
+  @loan = Loan.find(params[:id])
+  @book = @loan.book
+  @book.return_book
+  @loan.delete
+  redirect '/loans'
+end
 
 #show all loans
 get '/loans' do

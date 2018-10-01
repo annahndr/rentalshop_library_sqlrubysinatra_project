@@ -44,7 +44,7 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
       SqlRunner.run(sql, values)
     end
 
-    #change checked_out to 'out' method
+    #method to change checked_out to 'out' 
     def check_out_book
       sql = "UPDATE books SET checked_out = $1"
       values = ['out']

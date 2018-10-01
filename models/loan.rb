@@ -26,13 +26,31 @@ def update
   SqlRunner.run(sql, values)
 end
 
-#a method to get member name from loan?
-#can't get sql syntax right
 def member
   sql = "SELECT * FROM members INNER JOIN loans ON loans.member_id = members.id WHERE loans.id = $1"
   values = [@id]
   row =SqlRunner.run(sql, values).first
   return Member.new(row)
+end
+
+def book
+  sql = "SELECT * FROM books INNER JOIN loans ON loans.book_id = books.id WHERE loans.id = $1"
+  values = [@id]
+  row =SqlRunner.run(sql, values).first
+  return Book.new(row)
+end
+
+def delete
+  sql = "DELETE FROM loans WHERE id = $1"
+  values = [@id]
+  SqlRunner.run(sql, values)
+end
+
+def self.find(id)
+sql = "SELECT * FROM loans WHERE id = $1"
+values = [id]
+loan = SqlRunner.run( sql, values )
+return Loan.new( loan.first )
 end
 
 def self.all
