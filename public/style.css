@@ -1,4 +1,9 @@
 p {
   font-family: sans-serif;
-  color: red;
+  color: green;
+}
+
+.book_image {
+  height: 250px;
+  width: 180px;
 }

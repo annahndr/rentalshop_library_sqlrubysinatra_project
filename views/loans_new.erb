@@ -14,8 +14,8 @@
     <select name="book_id" id="book_select">
           <% @books.each do |book| %>
               <option value=<%= book.id %>><%= book.title %></option>
-              <%book.check_out_book%>
           <% end %>
+
     </select>
 
   <label for= "due_back">Due back:</label>

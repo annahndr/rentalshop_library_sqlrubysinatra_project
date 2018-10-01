@@ -37,6 +37,11 @@ get '/books/on-loan' do
   erb(:books_on_loan)
 end
 
+post '/books-age-range' do
+  @books = Book.get_by_age(params[:age_range])
+  erb(:books_age_range)
+end
+
 #show one book
 get '/books/:id' do
   @book = Book.find(params[:id])
@@ -46,6 +51,7 @@ end
 #display all books
 get '/books' do
   @books = Book.all()
+
   erb (:books)
 end
 
@@ -148,5 +154,7 @@ end
 post '/loans' do
   @loan = Loan.new(params)
   @loan.save
+  @book = Book.find(params[:book_id])
+  @book.check_out_book
   redirect '/loans'
 end

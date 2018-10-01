@@ -44,10 +44,10 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
       SqlRunner.run(sql, values)
     end
 
-    #method to change checked_out to 'out' 
+    #method to change checked_out to 'out'
     def check_out_book
-      sql = "UPDATE books SET checked_out = $1"
-      values = ['out']
+      sql = "UPDATE books SET checked_out = 'out' WHERE id = $1"
+      values = [@id]
       updated_book = SqlRunner.run(sql, values)
     end
 
@@ -87,6 +87,13 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
     def self.delete_all
       sql = "DELETE FROM books"
       SqlRunner.run(sql)
+    end
+
+    def self.get_by_age(age_range)
+      sql = "SELECT * FROM books WHERE age_range = $1"
+      values = [age_range]
+      result = SqlRunner.run(sql, values)
+      return result.map {|book_hash| Book.new(book_hash)}
     end
 
   ##

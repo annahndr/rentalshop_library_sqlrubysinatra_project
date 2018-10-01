@@ -1,7 +1,7 @@
 <h1>ALL AVAILABLE BOOKS</h1>
 
 <% for book in @books %>
-  <p>Image: <%= book.image %><br>
+  <p><img class ="book_image" src ="/images/<%= book.image %>"/><br>
     Title: <%= book.title %><br>
     Author: <%= book.author %><br>
     Illustrator: <%= book.illustrator %><br>

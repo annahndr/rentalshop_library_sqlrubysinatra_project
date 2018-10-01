@@ -6,20 +6,6 @@
   <li><a href="/books/on-loan">See all books on loan</a></li>
 </ul>
 
-<form method="post" action="/books-age-range" >
-
-<label for="age_range">Age range:</label>
-<select id="age_range" name="age_range">
-<% @books.map{|book| book.age_range}.uniq.each do |age_range| %>
-    <option value="<%= age_range %>"><%=age_range%></option>
-<% end %>
-</select>
-
-<input type="submit" value="Filter books"/>
-
-</form>
-
-
 <% for book in @books %>
   <p><img class ="book_image" src="images/<%=book.image %>"/>"<br>
     Title: <%= book.title %><br>
