@@ -6,7 +6,7 @@ require_relative("./models/member")
 require_relative("./models/loan")
 also_reload('./models/*')
 
-get '/' do
+get '/home' do
   (:home)
 end
 
@@ -50,11 +50,13 @@ end
 #display all books
 get '/books' do
   if params[:age_range]
-  @books = Book.get_by_age(params[:age_range])
-else
-  @books = Book.all
-end
-  erb (:books)
+    @books = Book.get_by_age(params[:age_range])
+  elsif params[:search_input]
+    Book.search_books(params[:search_input])
+  else
+    @books = Book.all
+  end
+erb (:books)
 end
 
 #edit a book

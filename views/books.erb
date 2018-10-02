@@ -7,16 +7,19 @@
 </ul>
 
 <form method="get" action="/books" >
-
 <label for="age_range">Age range:</label>
 <select id="age_range" name="age_range">
 <% @books.map{|book| book.age_range}.uniq.each do |age| %>
     <option value="<%=age%>"><%=age%></option>
 <% end %>
 </select>
-
 <input type="submit" value="Filter books"/>
+</form>
 
+<form method="get" action="/books">
+<label for="search">Search:</label>
+<input id= "search" type="text" name="search_input"/>
+<input type="submit" value="Search"/>
 </form>
 
 
