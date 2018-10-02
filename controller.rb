@@ -6,6 +6,10 @@ require_relative("./models/member")
 require_relative("./models/loan")
 also_reload('./models/*')
 
+get '/' do
+  (:home)
+end
+
 #BOOKS
 #create a new book
 get '/books/new' do
@@ -37,11 +41,6 @@ get '/books/on-loan' do
   erb(:books_on_loan)
 end
 
-post '/books-age-range' do
-  @books = Book.get_by_age(params[:age_range])
-  erb(:books_age_range)
-end
-
 #show one book
 get '/books/:id' do
   @book = Book.find(params[:id])
@@ -50,8 +49,11 @@ end
 
 #display all books
 get '/books' do
-  @books = Book.all()
-
+  if params[:age_range]
+  @books = Book.get_by_age(params[:age_range])
+else
+  @books = Book.all
+end
   erb (:books)
 end
 

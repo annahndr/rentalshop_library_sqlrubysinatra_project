@@ -1,17 +1,17 @@
 <h1>BOOKS</h1>
 <ul>
-  <li><a href="/books/new">Create New Book</a></li>
+  <li><a href="/books/new">Add a book to the library</a></li>
   <li><a href="/loans/new">Check out a book</a></li>
   <li><a href="/books/available">See all available books</a></li>
   <li><a href="/books/on-loan">See all books on loan</a></li>
 </ul>
 
-<form method="post" action="/books-age-range" >
+<form method="get" action="/books" >
 
 <label for="age_range">Age range:</label>
 <select id="age_range" name="age_range">
-<% @books.map{|book| book.age_range}.uniq.each do |age_range| %>
-    <option value="<%= age_range %>"><%=age_range%></option>
+<% @books.map{|book| book.age_range}.uniq.each do |age| %>
+    <option value="<%=age%>"><%=age%></option>
 <% end %>
 </select>
 
@@ -24,7 +24,7 @@
   <p><img class ="book_image" src="images/<%=book.image %>"/>"<br>
     Title: <%= book.title %><br>
     Author: <%= book.author %><br>
-    Illustrator: <%= book.illustrator %><br>
+    Illustrator: <%= book.illustrator %>
   </p>
   <p><a href="/books/<%= book.id %>">See book details</a></p>
 
