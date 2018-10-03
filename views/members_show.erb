@@ -1,8 +1,29 @@
-
-  <p>Name: <%= @member.name %><br>
-    Contact: <%= @member.contact %><br>
-    Id: <%= @member.id %><br>
-  </p>
+<div class="members_nav">
+  <div class ="members_nav_title">
+    <h2><a href="/members">Members</a></h2>
+  </div>
+  <div class="members_nav_menu">
+    <ul>
+      <li><a href="/members/new">Create new member</a></li>
+      <li><a href="/loans">See all loans</a></li>
+    </ul>
+  </div>
+</div>
+<br>
+<h2>Library member</h2>
+<br>
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Contact</th>
+    <th>ID</th>
+  </tr>
+  <tr>
+    <td><%= @member.name %></td>
+    <td><%= @member.contact %></td>
+    <td><%= @member.id %></td>
+  </tr>
+</table>
 <br>
 <form method="get" action="/members/<%= @member.id %>/edit">
   <input type="submit" value="Edit/Update Member"/>
@@ -10,4 +31,3 @@
 <form method="post" action="/members/<%= @member.id %>/delete">
   <input type="submit" value="Delete Member"/>
 </form>
-<br>
