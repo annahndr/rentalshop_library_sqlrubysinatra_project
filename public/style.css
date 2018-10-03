@@ -96,8 +96,9 @@ a:hover {
 }
 
 .home_body {
-  background-image: url("https://images.unsplash.com/photo-1455884981818-54cb785db6fc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f583b6dffc8c50e201f2be28b3badeea&auto=format&fit=crop&w=990&q=80");
+  background-image: url("https://images.unsplash.com/photo-1469013078550-305e63b7c8f7?ixlib=rb-0.3.5&s=b0f7f2c0f0ba3477720e093171388d97&auto=format&fit=crop&w=800&q=60");
   background-color: #f0cea0;
+  background-size: cover;
 }
 
 button {

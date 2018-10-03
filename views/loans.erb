@@ -11,7 +11,6 @@
 </div>
 <br>
 <h2>All loans</h2>
-<% for loan in @loans %>
 <table>
   <tr>
     <th>Loan ID</th>
@@ -20,6 +19,7 @@
     <th>Due back</th>
     <th>Action</th>
   </tr>
+  <% for loan in @loans %>
   <tr>
     <td><%= loan.id %></td>
     <td><%=loan.member.name%></td>
@@ -29,5 +29,5 @@
       <input type="submit" value="Return Book"/>
     </form></td>
   </tr>
+  <% end %>
 </table>
-<% end %>
