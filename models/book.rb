@@ -97,9 +97,8 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
     end
 
     def self.search_books(search_input)
-      sql = "SELECT * FROM books WHERE title ILIKE $1"
+      sql = "SELECT * FROM books WHERE title ILIKE '%' || $1 || '%' OR author ILIKE '%' || $1 || '%'"
       values = [search_input]
-      #insert '' and %
       result = SqlRunner.run(sql, values)
       return result.map {|book_hash| Book.new(book_hash)}
     end

@@ -52,7 +52,7 @@ get '/books' do
   if params[:age_range]
     @books = Book.get_by_age(params[:age_range])
   elsif params[:search_input]
-    Book.search_books(params[:search_input])
+    @books = Book.search_books(params[:search_input])
   else
     @books = Book.all
   end
