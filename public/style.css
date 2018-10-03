@@ -1,9 +1,175 @@
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
 p {
-  font-family: sans-serif;
-  color: green;
+  font-family: helvetica;
+  color: black;
+}
+
+h2 a {
+  font-family: helvetica;
+  color: #534d41;
+  text-decoration: none;
 }
 
 .book_image {
-  height: 250px;
+  height: 240px;
   width: 180px;
+}
+
+/* MAIN NAV STYLING */
+.main_nav {
+  background-color: #f3a712;
+  font-family: helvetica;
+  height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.main_nav_title {
+  width: 60%;
+  background-color: #f3a712;
+  padding: 16px 40px;
+  text-align: left;
+}
+
+.main_nav_title h2 {
+  text-decoration: none;
+  color: #534d41;
+}
+
+.main_nav_menu {
+  width: 40%;
+}
+
+.main_nav_menu ul {
+ display: flex;
+ justify-content: flex-end;
+ text-decoration: none;
+}
+
+.main_nav_menu ul li {
+ padding: 10px 10px;
+ color: white;
+ font-size: 12pt;
+ list-style-type: none;
+ text-decoration: none;
+}
+
+.main_nav_menu a {
+ text-decoration: none;
+ color: #534d41;
+}
+
+a:hover {
+  color: #29335c;
+  font-weight: bold;
+}
+
+.books_forms {
+  font-family: helvetica;
+  font-size: 11pt;
+  display: flex;
+  justify-content: space-around;
+}
+
+.home_body {
+  background-image: url("https://images.unsplash.com/photo-1455884981818-54cb785db6fc?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=f583b6dffc8c50e201f2be28b3badeea&auto=format&fit=crop&w=990&q=80");
+  background-color: #f0cea0;
+  height: 100%;
+}
+
+button {
+    background-color: #29335c;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    font-size: 16px;
+}
+
+
+
+table, th, td {
+    border: 1px solid black;
+}
+
+.maintext {
+  font-family: helvetica;
+  color: black;
+}
+
+/* BOOK NAV STYLING */
+.books_nav {
+  background-color: blanchedalmond;
+  font-family: helvetica;
+  color: white;
+  height: 70px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.book_nav_title {
+  width: 20%;
+  background-color: blanchedalmond;
+  padding: 16px 40px;
+  text-align: left;
+}
+ .books_nav_menu {
+   width: 80%;
+ }
+
+.books_nav_menu ul {
+  display: flex;
+  justify-content: flex-end;
+  text-decoration: none;
+}
+
+.books_nav_menu ul li {
+  padding: 10px 10px;
+  color: white;
+  font-size: 12pt;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.books_nav_menu a {
+  text-decoration: none;
+  color: #534d41;
+}
+
+/* BOOKS */
+.books_display {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.books_display p {
+  margin: 10px;
+}
+
+.books_display p:hover {
+  color: #29335c;
+  font-weight: bold;
+}
+
+.show_book {
+  font-family: helvetica;
+  height: 80%;
+  width: 100%;
+  display: flex;
+  position: fixed;
+  align-items: center;
+  justify-content: center;
 }

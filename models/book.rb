@@ -97,9 +97,9 @@ attr_accessor :image, :title, :author, :illustrator, :age_range, :checked_out
     end
 
     def self.search_books(search_input)
-      sql = "SELECT * FROM books WHERE UPPER(title) LIKE UPPER($1) OR UPPER(author) LIKE UPPER($1)"
-      values = ["''%#{search_input}%''"]
-      binding.pry
+      sql = "SELECT * FROM books WHERE title ILIKE $1"
+      values = [search_input]
+      #insert '' and %
       result = SqlRunner.run(sql, values)
       return result.map {|book_hash| Book.new(book_hash)}
     end

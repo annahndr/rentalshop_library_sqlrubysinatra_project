@@ -1,17 +1,17 @@
 
-
+<div class ="show_book">
   <p><img class ="book_image" src ="/images/<%= @book.image %>"/><br>
-    Title: <%= @book.title %><br>
-    Author: <%= @book.author %><br>
-    Illustrator: <%= @book.illustrator %><br>
-    Age Range: <%= @book.age_range %><br>
-    Checked out? <%= @book.checked_out %><br>
+    <strong>Title:</strong> <%= @book.title %><br>
+    <strong>Author:</strong> <%= @book.author %><br>
+    <strong>Illustrator:</strong> <%= @book.illustrator %><br>
+    <strong>Age Range:</strong> <%= @book.age_range %><br>
+    <strong>Checked in/out:</strong> <%= @book.checked_out %><br>
   </p>
-<br>
 <form method="get" action="/books/<%= @book.id %>/edit">
   <input type="submit" value="Edit Book"/>
 </form>
+<br>
 <form method="post" action="/books/<%= @book.id %>/delete">
   <input type="submit" value="Delete Book"/>
 </form>
-<br>
+</div>

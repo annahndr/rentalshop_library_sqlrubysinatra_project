@@ -7,7 +7,7 @@ require_relative("./models/loan")
 also_reload('./models/*')
 
 get '/home' do
-  (:home)
+  erb (:home)
 end
 
 #BOOKS

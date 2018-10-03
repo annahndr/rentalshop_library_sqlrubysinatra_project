@@ -1,16 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Ormonde Children's Library</title>
+  <title>Glasgow Children's Mobile Library</title>
   <link rel ="stylesheet" type = "text/css" href="/style.css">
 </head>
 <body>
+
+<div class="main_nav">
+  <div class="main_nav_title">
+    <h2><a href='/home'>Glasgow Children's Mobile Library</a></h2>
+  </div>
+  <div class="main_nav_menu">
     <ul>
-      <li><a href="/books">See all books</a></li>
-      <li><a href="/members">See all members</a></li>
-    </ul>
-  <div class="maintext">
+      <li><a href="/books">Manage Books</a></li>
+      <li><a href="/members">Manage Members</a></li>
+    <ul>
+  </div>
+</div>
+
+  <div>
   <%= yield %>
   </div>
+
 </body>
 </html>
