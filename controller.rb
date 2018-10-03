@@ -6,7 +6,7 @@ require_relative("./models/member")
 require_relative("./models/loan")
 also_reload('./models/*')
 
-get '/home' do
+get '/' do
   erb (:home)
 end
 
@@ -90,6 +90,12 @@ end
 #create a new member
 get '/members/new' do
   erb(:members_new)
+end
+
+post '/members/:id/delete' do
+  @member = Member.find(params[:id])
+  @member.delete()
+  redirect '/members'
 end
 
 #edit a member

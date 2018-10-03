@@ -24,7 +24,7 @@ attr_accessor :name, :contact
       sql = "UPDATE members SET (name, contact) =
       ($1, $2)
       WHERE id =  $3"
-      values = [@image, @contact, @id]
+      values = [@name, @contact, @id]
       SqlRunner.run(sql, values)
     end
 
