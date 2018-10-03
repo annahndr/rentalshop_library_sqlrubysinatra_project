@@ -1,14 +1,30 @@
-<h1>MEMBERS</h1>
+<div class="members_nav">
+  <div class ="members_nav_title">
+    <h2><a href="/members">Members</a></h2>
+  </div>
+  <div class="members_nav_menu">
+    <ul>
+      <li><a href="/members/new">Create new member</a></li>
+      <li><a href="/loans">See all loans</a></li>
+    </ul>
+  </div>
+</div>
+<br>
+<div class="member_display">
 
-<ul>
-  <li><a href="/members/new">Create New Member</a></li>
-  <li><a href="/loans">See All Loans</a></li>
-</ul>
+  <table>
+    <tr>
+      <th>Name</th>
+      <th>Contact</th>
+      <th>Further info</th>
+    </tr>
+    <% for member in @members %>
+    <tr>
+      <td><%= member.name %></td>
+      <td><%= member.contact %></td>
+      <td><a href="/members/<%= member.id %>">See Member Details</a></td>
+    </tr>
+    <% end %>
+  </table>
 
-<% for member in @members %>
-  <p>Name: <%= member.name %><br>
-    Contact: <%= member.contact %><br>
-  </p>
-  <p><a href="/members/<%= member.id %>">See Member Details</a></p>
-
-<% end %>
+</div>
