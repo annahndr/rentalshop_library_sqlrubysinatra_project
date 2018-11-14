@@ -2,15 +2,14 @@
   padding: 0px;
   margin: 0px;
   box-sizing: border-box;
+  font-family: helvetica, sans-serif;
 }
 
 p {
-  font-family: helvetica;
   color: black;
 }
 
 h2 a {
-  font-family: helvetica;
   color: #534d41;
   text-decoration: none;
 }
@@ -22,7 +21,6 @@ h2:hover {
 }
 
 h2 {
-  font-family: helvetica;
   color: #534d41;
   margin-left: 30px;
 }
@@ -181,7 +179,7 @@ table, th, td {
   color: #534d41;
 }
 
-/* BOOKS */
+/* BOOKS STYLING */
 .books_display {
   display: flex;
   flex-direction: row;
@@ -209,7 +207,6 @@ table, th, td {
 }
 
 /* MEMBERS STYLING */
-
 .members_nav {
   background-color: blanchedalmond;
   font-family: helvetica;
