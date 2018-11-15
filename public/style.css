@@ -40,10 +40,11 @@ form {
 .main_nav {
   background-color: #f3a712;
   font-family: helvetica;
-  height: 70px;
+  height: 100px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  margin-top: 30px;
 }
 
 .main_nav_title {
@@ -70,8 +71,9 @@ form {
 
 .main_nav_menu ul li {
  padding: 10px 10px;
+ padding-right: 20px;
  color: white;
- font-size: 12pt;
+ font-size: 14pt;
  list-style-type: none;
  text-decoration: none;
 }

@@ -1,13 +1,13 @@
 require( 'sinatra' )
-require( 'sinatra/contrib/all' )
+require( 'sinatra/contrib/all' ) if development?
 require( 'pry-byebug' )
 require_relative("./models/book")
 require_relative("./models/member")
 require_relative("./models/loan")
-also_reload('./models/*')
+# also_reload('./models/*')
 
 get '/' do
-  erb (:home)
+  erb (:index)
 end
 
 #BOOKS
