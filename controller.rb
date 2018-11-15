@@ -1,6 +1,6 @@
 require( 'sinatra' )
 require( 'sinatra/contrib/all' ) if development?
-require( 'pry-byebug' )
+# require( 'pry-byebug' )
 require_relative("./models/book")
 require_relative("./models/member")
 require_relative("./models/loan")
